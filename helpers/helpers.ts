@@ -16,7 +16,6 @@ export const isValidUrl = (url: string): boolean => {
   } catch (error) {
     return false;
   }
-  console.log(givenURL.host);
   if (givenURL.host === "localhost") {
     return false;
   }
