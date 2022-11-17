@@ -37,12 +37,12 @@ const Input = () => {
         <input
           ref={inputRef}
           type="url"
-          className="input input-bordered input-primary w-full"
+          className="input input-bordered input-primary rounded-md w-full"
           placeholder="https://example.com"
           value={value}
           onChange={e => setValue(e.target.value)}
         />
-        <button className="btn btn-accent" onClick={clickHandler}>
+        <button className="btn btn-accent rounded-md" onClick={clickHandler}>
           shorten
         </button>
         {short !== null ? <URLSuccess short={short} /> : null}

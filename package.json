@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/font": "^13.0.3",
     "daisyui": "^2.39.1",
     "ioredis": "^5.2.4",
     "next": "latest",

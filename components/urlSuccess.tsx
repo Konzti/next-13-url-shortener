@@ -7,12 +7,10 @@ const URLSuccess = ({ short }: URLSuccessProps) => {
   const url = `${BASE_URL}/${short}`;
   return (
     <>
-      <p className="text-lg text-success">SUCCESS! Your shortened URL is:</p>
-      <p>
-        <a href={`/${short}`} target="_blank" className="text-lg text-accent underline">
-          {url}
-        </a>
-      </p>
+      <p className="text-lg text-success text-center">SUCCESS! Your shortened URL is:</p>
+      <a href={`/${short}`} target="_blank" className="block text-xl text-center text-accent underline">
+        {url}
+      </a>
     </>
   );
 };

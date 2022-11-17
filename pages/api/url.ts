@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { UpstashPayload } from "../../types";
-import { generateRandomString } from "./../../helpers/helpers";
+import { generateRandomString, isValidUrl } from "./../../helpers/helpers";
 import { REDIS_KEY, SHORT_LENGTH } from "../../constants";
 import { redis } from "../../redis";
 
@@ -19,6 +19,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return;
   }
   const { longUrl } = req.body;
+
+  // further validation of the url can be done here
+  if (!isValidUrl(longUrl)) {
+    res.status(400).json({ success: false, error: "invalid url" });
+    return;
+  }
 
   let random = generateRandomString(SHORT_LENGTH);
 

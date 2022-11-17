@@ -19,6 +19,8 @@ export async function middleware(request: NextRequest): Promise<void | NextRespo
   let data = await resp.json();
   if (!data.success) {
     return NextResponse.rewrite(new URL("/", request.url));
+    // OR
+    // return NextResponse.redirect(request.nextUrl.origin);
   }
   return NextResponse.redirect(new URL(data.longUrl));
 }

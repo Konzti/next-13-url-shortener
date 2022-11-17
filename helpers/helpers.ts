@@ -1,4 +1,4 @@
-import { URL_ENDPOINT } from "../constants";
+import { URL_ENDPOINT, HOST } from "../constants";
 import { ShortUrlResponse, URLPayload, ClientResponse } from "../types";
 
 export const generateRandomString = (n: number): string => {
@@ -10,15 +10,17 @@ export const generateRandomString = (n: number): string => {
 };
 
 export const isValidUrl = (url: string): boolean => {
+  console.log("Checking url...");
   let givenURL;
   try {
     givenURL = new URL(url);
   } catch (error) {
     return false;
   }
-  if (givenURL.host === "localhost") {
+  if (givenURL.host === HOST) {
     return false;
   }
+  console.log(givenURL.host);
   return givenURL.protocol === "http:" || givenURL.protocol === "https:";
 };
 
